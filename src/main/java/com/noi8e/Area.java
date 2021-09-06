@@ -8,7 +8,16 @@ public class Area {
     byte window;
     boolean needAKey;
     boolean isForGroupProgram;
-    String[] typeOfTrain = {"FightArea","GymArea","DanceArea","YogaArea"};
+    TrainType trainType;
 
+    public Area() {
+    }
 
+    public Area(String areaName, int length, int width, boolean isForGroupProgram, TrainType trainType) {
+        this.areaName = areaName;
+        this.length = length;
+        this.width = width;
+        this.isForGroupProgram = isForGroupProgram;
+        this.trainType = trainType;
+    }
 }
