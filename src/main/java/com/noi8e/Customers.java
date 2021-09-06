@@ -1,6 +1,9 @@
 package com.noi8e;
 
+import java.util.UUID;
+
 public class Customers {
+    private UUID id;
     private String firstName;
     private String lastName;
     private GenderType gender;
@@ -105,6 +108,7 @@ public class Customers {
     }
 
     public Customers(String firstName, String lastName, GenderType gender, int phoneNumber, String address, boolean isRussiaCitizen) {
+        this.id = UUID.randomUUID();
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
@@ -114,6 +118,7 @@ public class Customers {
     }
 
     public Customers(String firstName, String lastName, GenderType gender, int phoneNumber, String address, boolean isRussiaCitizen, boolean isNewbie, int heightCm, int weightKg, boolean isReactivationClient, boolean isPromoClient) {
+        this.id = UUID.randomUUID();
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;

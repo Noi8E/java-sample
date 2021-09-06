@@ -1,9 +1,12 @@
 package com.noi8e;
 
+import java.util.UUID;
+
 public class Trainer {
+    private UUID id;
     private String firstName;
     private String lastName;
-    private int phoneNumber;
+    private String phoneNumber;
     private String address;
     private String gender;
     private boolean haveCovidcert;
@@ -16,7 +19,11 @@ public class Trainer {
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        if (firstName instanceof String && firstName != null) {
+            this.firstName = firstName;
+        } else {
+            System.out.println("Введите корректное имя");
+        }
     }
 
     public String getLastName() {
@@ -24,15 +31,15 @@ public class Trainer {
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        this.lastName = (lastName.equals(firstName)) ? lastName : null;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPhoneNumber(String phoneNumber)  {
+        this.phoneNumber = (phoneNumber.length() < 11) ? phoneNumber : null;
     }
 
     public String getAddress() {
@@ -86,7 +93,9 @@ public class Trainer {
     public Trainer() {
     }
 
-    public Trainer(String firstName, String lastName, int phoneNumber, String address, String gender, boolean haveCovidcert, String education, int clientCount, TrainType trainType) {
+    public Trainer(String firstName, String lastName, String phoneNumber, String address, String gender, boolean haveCovidcert,
+                   String education, int clientCount, TrainType trainType) {
+        this.id = UUID.randomUUID();
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
@@ -98,7 +107,8 @@ public class Trainer {
         this.trainType = trainType;
     }
 
-    public Trainer(String firstName, String lastName, int phoneNumber, String address, String gender) {
+    public Trainer(String firstName, String lastName, String phoneNumber, String address, String gender) {
+        this.id = UUID.randomUUID();
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;

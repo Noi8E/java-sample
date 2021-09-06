@@ -1,6 +1,9 @@
 package com.noi8e;
 
+import java.util.UUID;
+
 public class Staff {
+    private UUID id;
     private String firstName;
     private String lastName;
     private String gender;
@@ -46,6 +49,7 @@ public class Staff {
     }
 
     public Staff(String firstName, String lastName, String gender, int phoneNumber, String address, boolean isRussiaCitizen, boolean haveCovidCert) {
+        this.id = UUID.randomUUID();
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
