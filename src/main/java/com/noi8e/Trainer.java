@@ -9,6 +9,7 @@ public class Trainer {
     private String phoneNumber;
     private String address;
     private String gender;
+    private TrainArea trainArea;
 
     public UUID getId() {
         return id;
@@ -55,13 +56,22 @@ public class Trainer {
         this.gender = gender;
     }
 
-    public Trainer(String firstName, String lastName, String phoneNumber, String address, String gender) {
+    public TrainArea getTrainArea() {
+        return trainArea;
+    }
+
+    public void setTrainArea(TrainArea trainArea) {
+        this.trainArea = trainArea;
+    }
+
+    public Trainer(String firstName, String lastName, String phoneNumber, String address, String gender, TrainArea trainArea) {
         this.id = UUID.randomUUID();
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.gender = gender;
+        this.trainArea = trainArea;
     }
 
     public Trainer() {
