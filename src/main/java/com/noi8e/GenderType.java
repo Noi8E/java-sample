@@ -1,5 +1,9 @@
 package com.noi8e;
 
 public enum GenderType {
-    Man, Woman, Other, NonBinar, Helicopter
+    MAN,
+    WOMAN,
+    NONBINAR,
+    HELICOPTER
+
 };

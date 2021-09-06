@@ -9,21 +9,18 @@ public class Trainer {
     private String phoneNumber;
     private String address;
     private String gender;
-    private boolean haveCovidcert;
-    private String education;
-    private int clientCount;
-    private TrainType trainType;
+
+    public UUID getId() {
+        return id;
+    }
+
 
     public String getFirstName() {
         return firstName;
     }
 
     public void setFirstName(String firstName) {
-        if (firstName instanceof String && firstName != null) {
-            this.firstName = firstName;
-        } else {
-            System.out.println("Введите корректное имя");
-        }
+        this.firstName = firstName;
     }
 
     public String getLastName() {
@@ -31,15 +28,15 @@ public class Trainer {
     }
 
     public void setLastName(String lastName) {
-        this.lastName = (lastName.equals(firstName)) ? lastName : null;
+        this.lastName = lastName;
     }
 
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber)  {
-        this.phoneNumber = (phoneNumber.length() < 11) ? phoneNumber : null;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getAddress() {
@@ -58,55 +55,6 @@ public class Trainer {
         this.gender = gender;
     }
 
-    public boolean isHaveCovidcert() {
-        return haveCovidcert;
-    }
-
-    public void setHaveCovidcert(boolean haveCovidcert) {
-        this.haveCovidcert = haveCovidcert;
-    }
-
-    public String getEducation() {
-        return education;
-    }
-
-    public void setEducation(String education) {
-        this.education = education;
-    }
-
-    public int getClientCount() {
-        return clientCount;
-    }
-
-    public void setClientCount(int clientCount) {
-        this.clientCount = clientCount;
-    }
-
-    public TrainType getTrainType() {
-        return trainType;
-    }
-
-    public void setTrainType(TrainType trainType) {
-        this.trainType = trainType;
-    }
-
-    public Trainer() {
-    }
-
-    public Trainer(String firstName, String lastName, String phoneNumber, String address, String gender, boolean haveCovidcert,
-                   String education, int clientCount, TrainType trainType) {
-        this.id = UUID.randomUUID();
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
-        this.address = address;
-        this.gender = gender;
-        this.haveCovidcert = haveCovidcert;
-        this.education = education;
-        this.clientCount = clientCount;
-        this.trainType = trainType;
-    }
-
     public Trainer(String firstName, String lastName, String phoneNumber, String address, String gender) {
         this.id = UUID.randomUUID();
         this.firstName = firstName;
@@ -115,4 +63,9 @@ public class Trainer {
         this.address = address;
         this.gender = gender;
     }
+
+    public Trainer() {
+        this.id = UUID.randomUUID();
+    }
+
 }
