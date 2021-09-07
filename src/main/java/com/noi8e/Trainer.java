@@ -81,8 +81,9 @@ public class Trainer {
     public int customMax(int one, int two){
         return Math.max(one, two);
     }
-    public void getFullName(String firstName, String lastName) {
-        String fullName = firstName + lastName;
+
+    public String getFullName() {
+        return this.firstName + this.lastName;
     }
 
 }

@@ -1,9 +1,16 @@
 package com.noi8e;
 
 public enum GenderType {
-    MAN,
-    WOMAN,
-    NONBINAR,
-    HELICOPTER
+    MAN("Мужчина"),
+    WOMAN("Женщина"),
+    NONBINAR("Небинарное"),
+    HELICOPTER("Боевой вертолет");
 
+    String sex;
+
+    GenderType() {
+    }
+    GenderType(String sex) {
+        this.sex = sex;
+    }
 };

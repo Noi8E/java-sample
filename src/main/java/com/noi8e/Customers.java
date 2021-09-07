@@ -7,7 +7,7 @@ public class Customers {
     private String firstName;
     private String lastName;
     private GenderType gender;
-    private int phoneNumber;
+    private String phoneNumber;
     private boolean isRussiaCitizen;
     private boolean isNewbie;
     private int heightCm;
@@ -40,11 +40,11 @@ public class Customers {
         this.gender = gender;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -107,7 +107,7 @@ public class Customers {
     public Customers() {
     }
 
-    public Customers(String firstName, String lastName, GenderType gender, int phoneNumber, String address, boolean isRussiaCitizen) {
+    public Customers(String firstName, String lastName, GenderType gender, String phoneNumber, String address, boolean isRussiaCitizen) {
         this.id = UUID.randomUUID();
         this.firstName = firstName;
         this.lastName = lastName;
@@ -117,7 +117,7 @@ public class Customers {
         this.isRussiaCitizen = isRussiaCitizen;
     }
 
-    public Customers(String firstName, String lastName, GenderType gender, int phoneNumber, String address, boolean isRussiaCitizen, boolean isNewbie, int heightCm, int weightKg, boolean isReactivationClient, boolean isPromoClient) {
+    public Customers(String firstName, String lastName, GenderType gender, String phoneNumber, String address, boolean isRussiaCitizen, boolean isNewbie, int heightCm, int weightKg, boolean isReactivationClient, boolean isPromoClient) {
         this.id = UUID.randomUUID();
         this.firstName = firstName;
         this.lastName = lastName;
@@ -131,4 +131,23 @@ public class Customers {
         this.isReactivationClient = isReactivationClient;
         this.isPromoClient = isPromoClient;
     }
+    public String clientStringInfo(Customers customer){
+        String firstName = this.firstName;
+        String lastName = this.lastName;
+        String phone = this.phoneNumber;
+        String gender;
+        if (customer.gender == GenderType.MAN) {
+            gender = "Мужчина";
+        }
+        else if (customer.gender == GenderType.WOMAN) {
+            gender = "Женщина";
+        }
+        else if (customer.gender == GenderType.NONBINAR) {
+            gender = "Небинарное";
+        }
+        else gender = "Боевой вертолет";
+        return firstName + " " + lastName + " " + phone + " " + gender;
+    }
+
+
 }

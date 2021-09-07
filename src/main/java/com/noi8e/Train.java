@@ -5,7 +5,7 @@ import java.util.UUID;
 public class Train {
     private UUID id;
     private String trainName;
-    private int maxPeopleValue;
+    private int currentPeopleValue;
     private TrainArea trainArea;
     private TrainType trainType;
     private Trainer trainer;
@@ -65,8 +65,12 @@ public class Train {
         this.staff = staff;
     }
 
-    public int getMaxPeopleValue() {
-        return maxPeopleValue;
+    public int getCurrentPeopleValue() {
+        return currentPeopleValue;
+    }
+    public void setCurrentPeopleValue(int currentPeopleValue) {
+
+        this.currentPeopleValue = currentPeopleValue;
     }
 
 
@@ -81,36 +85,39 @@ public class Train {
     public Train() {
         this.id = UUID.randomUUID();
     }
-    public Train(int maxPeopleValue) {
+    public Train(int currentPeopleValue) {
         this.id = UUID.randomUUID();
-        this.maxPeopleValue = maxPeopleValue;
+        this.currentPeopleValue = currentPeopleValue;
     }
     //Если надо чистить ринг после тренировки
-    public Train(TrainArea trainArea, TrainType trainType, Trainer trainer, boolean isGroupTrain, int maxPeopleValue, boolean needClearAfterTrain, Staff staff) {
+    public Train(TrainArea trainArea, TrainType trainType, Trainer trainer, boolean isGroupTrain, int currentPeopleValue, boolean needClearAfterTrain, Staff staff) {
         this.id = UUID.randomUUID();
         this.trainArea = trainArea;
         this.trainType = trainType;
         this.trainer = trainer;
         this.isGroupTrain = isGroupTrain;
-        this.maxPeopleValue = maxPeopleValue;
+        this.currentPeopleValue = currentPeopleValue;
         this.needClearAfterTrain = needClearAfterTrain;
         this.staff = staff;
     }
     //Если не надо убирать после тренировки
-    public Train(TrainArea trainArea, TrainType trainType, Trainer trainer, boolean isGroupTrain, int maxPeopleValue, boolean needClearAfterTrain) {
+    public Train(TrainArea trainArea, TrainType trainType, Trainer trainer, boolean isGroupTrain, int currentPeopleValue, boolean needClearAfterTrain) {
         this.id = UUID.randomUUID();
         this.trainArea = trainArea;
         this.trainType = trainType;
         this.trainer = trainer;
         this.isGroupTrain = isGroupTrain;
-        this.maxPeopleValue = maxPeopleValue;
+        this.currentPeopleValue = currentPeopleValue;
         this.needClearAfterTrain = needClearAfterTrain;
     }
 
     public void startTheTrain() {
         if (trainer.getId() != null && trainArea.getId() != null) {
-            if (this.maxPeopleValue <= 3) {
-                System.out.println("У нас есть тренер\nЕсть зал\nКол-во людей не превышает лимита\nМожем начинать тренировку");
+            if (this.currentPeopleValue <= 3) {
+                System.out.println("Можем начинать тренировку!!!\n\n");
+                System.out.println("Тренер: " + trainer.getFullName());
+                System.out.println("Зал: " + trainArea.getAreaName());
+                System.out.println("Кол-во клиентов: " + this.currentPeopleValue);
             }
             else System.out.println("На тренировке слишком много людей");
         }
