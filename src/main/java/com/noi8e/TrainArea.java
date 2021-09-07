@@ -10,6 +10,8 @@ public class TrainArea {
     private String trainType;
 
 
+
+
     public UUID getId() {
         return id;
     }
@@ -46,6 +48,7 @@ public class TrainArea {
     public void setTrainType(String trainType) {
         this.trainType = trainType;
     }
+
     public TrainArea() {
         this.id = UUID.randomUUID();
     }

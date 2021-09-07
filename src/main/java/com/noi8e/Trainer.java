@@ -78,4 +78,11 @@ public class Trainer {
         this.id = UUID.randomUUID();
     }
 
+    public int customMax(int one, int two){
+        return Math.max(one, two);
+    }
+    public void getFullName(String firstName, String lastName) {
+        String fullName = firstName + lastName;
+    }
+
 }

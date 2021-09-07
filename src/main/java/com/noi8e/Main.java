@@ -4,17 +4,15 @@ package com.noi8e;
 public class Main {
 
     public static void main(String[] args) {
+
         TrainArea fightArea = new TrainArea();
-        Trainer roman = new Trainer("Roman", "QA", "79087898766", "someAddress", GenderType.MAN.name(), fightArea);
-        Trainer sveta = new Trainer();
-        TrainArea gymArea = new TrainArea("Зона свободных весов", false, true, TrainType.GYMAREA.name());
+        Trainer roman = new Trainer("Roman", "Boxov", "79087898766", "someAddress", GenderType.MAN.name(), fightArea);
+        Customers customer1 = new Customers("Олег","Олегов",GenderType.MAN,)
+        Staff jojo = new Staff("jojo", "lolo", GenderType.HELICOPTER.name(), "890876312", "JOjo-address");
+        Train boxingGroupTrain = new Train(fightArea,TrainType.FIGHT,roman,true,4,true,jojo);
 
-        Staff jojo = new Staff("jojo", "petrob", GenderType.HELICOPTER.name(), "890876312", "JOjo-address");
-        Staff tutti = new Staff();
+        boxingGroupTrain.setTrainName("Групповая тренировка по боксу");
+        boxingGroupTrain.startTheTrain();
 
-
-        System.out.println("roman " + roman.getId());
-        System.out.println("roman " + roman.getTrainArea().getId());
-        System.out.println("sveta " + sveta.getId());
     }
 }
