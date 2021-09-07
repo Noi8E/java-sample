@@ -1,17 +1,40 @@
 package com.noi8e;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.UUID;
 
 public class Train {
     private UUID id;
     private String trainName;
-    private int currentPeopleValue;
     private TrainArea trainArea;
     private TrainType trainType;
     private Trainer trainer;
+    private Client client;
     private boolean isGroupTrain;
     private boolean needClearAfterTrain;
     private Staff staff;
+    private int maxPeopleValue;
+    private static int currentPeopleCount = 0;
+    List<Client> clientLinkedList;
+
+    public List<Client> getClientLinkedList() {
+        return clientLinkedList;
+    }
+
+    public void setClientLinkedList(List<Client> clientLinkedList) {
+        this.clientLinkedList = clientLinkedList;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
 
     public UUID getId() {
         return id;
@@ -65,14 +88,6 @@ public class Train {
         this.staff = staff;
     }
 
-    public int getCurrentPeopleValue() {
-        return currentPeopleValue;
-    }
-    public void setCurrentPeopleValue(int currentPeopleValue) {
-
-        this.currentPeopleValue = currentPeopleValue;
-    }
-
 
     public String getTrainName() {
         return trainName;
@@ -82,47 +97,62 @@ public class Train {
         this.trainName = trainName;
     }
 
+    public int getMaxPeopleValue() {
+        return maxPeopleValue;
+    }
+
+    public void setMaxPeopleValue(int maxPeopleValue) {
+        this.maxPeopleValue = maxPeopleValue;
+    }
+
+    public static int getCurrentPeopleCount() {
+        return currentPeopleCount;
+    }
+
+    public static void setCurrentPeopleCount(int currentPeopleCount) {
+        Train.currentPeopleCount = currentPeopleCount;
+    }
+
     public Train() {
         this.id = UUID.randomUUID();
     }
-    public Train(int currentPeopleValue) {
-        this.id = UUID.randomUUID();
-        this.currentPeopleValue = currentPeopleValue;
-    }
+
+
     //Если надо чистить ринг после тренировки
-    public Train(TrainArea trainArea, TrainType trainType, Trainer trainer, boolean isGroupTrain, int currentPeopleValue, boolean needClearAfterTrain, Staff staff) {
+    public Train(TrainArea trainArea, TrainType trainType, Trainer trainer, boolean isGroupTrain, boolean needClearAfterTrain, Staff staff, int maxPeopleValue, List<Client> clientLinkedList) {
         this.id = UUID.randomUUID();
         this.trainArea = trainArea;
         this.trainType = trainType;
         this.trainer = trainer;
         this.isGroupTrain = isGroupTrain;
-        this.currentPeopleValue = currentPeopleValue;
+        this.maxPeopleValue = maxPeopleValue;
         this.needClearAfterTrain = needClearAfterTrain;
         this.staff = staff;
+        this.clientLinkedList = clientLinkedList;
+
     }
+
     //Если не надо убирать после тренировки
-    public Train(TrainArea trainArea, TrainType trainType, Trainer trainer, boolean isGroupTrain, int currentPeopleValue, boolean needClearAfterTrain) {
+    public Train(TrainArea trainArea, TrainType trainType, Trainer trainer, boolean isGroupTrain, boolean needClearAfterTrain, int maxPeopleValue,List<Client> clientLinkedList) {
         this.id = UUID.randomUUID();
         this.trainArea = trainArea;
         this.trainType = trainType;
         this.trainer = trainer;
         this.isGroupTrain = isGroupTrain;
-        this.currentPeopleValue = currentPeopleValue;
+        this.maxPeopleValue = maxPeopleValue;
         this.needClearAfterTrain = needClearAfterTrain;
+        this.clientLinkedList = clientLinkedList;
     }
-
-    public void startTheTrain() {
-        if (trainer.getId() != null && trainArea.getId() != null) {
-            if (this.currentPeopleValue <= 3) {
-                System.out.println("Можем начинать тренировку!!!\n\n");
-                System.out.println("Тренер: " + trainer.getFullName());
-                System.out.println("Зал: " + trainArea.getAreaName());
-                System.out.println("Кол-во клиентов: " + this.currentPeopleValue);
+    public int howManyBoxers(){
+        int i = 0;
+        for (Client client: clientLinkedList) {
+            if (trainType == client.clientTrainType) {
+                i++;
             }
-            else System.out.println("На тренировке слишком много людей");
         }
-        else System.out.println("Нет тренера или зала");
-
+        return i;
     }
+
+
 
 }

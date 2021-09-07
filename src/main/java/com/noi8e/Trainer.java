@@ -8,7 +8,7 @@ public class Trainer {
     private String lastName;
     private String phoneNumber;
     private String address;
-    private String gender;
+    private GenderType gender;
     private TrainArea trainArea;
 
     public UUID getId() {
@@ -48,11 +48,11 @@ public class Trainer {
         this.address = address;
     }
 
-    public String getGender() {
+    public GenderType getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(GenderType gender) {
         this.gender = gender;
     }
 
@@ -64,7 +64,7 @@ public class Trainer {
         this.trainArea = trainArea;
     }
 
-    public Trainer(String firstName, String lastName, String phoneNumber, String address, String gender, TrainArea trainArea) {
+    public Trainer(String firstName, String lastName, String phoneNumber, String address, GenderType gender, TrainArea trainArea) {
         this.id = UUID.randomUUID();
         this.firstName = firstName;
         this.lastName = lastName;
@@ -78,12 +78,8 @@ public class Trainer {
         this.id = UUID.randomUUID();
     }
 
-    public int customMax(int one, int two){
-        return Math.max(one, two);
-    }
-
     public String getFullName() {
-        return this.firstName + this.lastName;
+        return this.firstName + " " + this.lastName;
     }
 
 }

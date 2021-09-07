@@ -8,8 +8,7 @@ public class TrainArea {
     private boolean needAKey;
     private boolean isForGroupProgram;
     private String trainType;
-
-
+    private int maxPeopleValue;
 
 
     public UUID getId() {
@@ -49,8 +48,19 @@ public class TrainArea {
         this.trainType = trainType;
     }
 
-    public TrainArea() {
+    public int getMaxPeopleValue() {
+        return maxPeopleValue;
+    }
+
+    public void setMaxPeopleValue(int maxPeopleValue) {
+        this.maxPeopleValue = maxPeopleValue;
+    }
+    //Конструкторы
+
+    public TrainArea()
+    {
         this.id = UUID.randomUUID();
+        this.maxPeopleValue = 1;
     }
 
     public TrainArea(String areaName, boolean needAKey, boolean isForGroupProgram, String trainType) {
